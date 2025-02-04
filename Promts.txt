@@ -1,0 +1,213 @@
+📁 Ordnerstruktur
+Copy
+
+project-root/
+├── public/
+│   └── icons/              # Statische Assets (SVG/PNG)
+├── src/
+│   ├── assets/
+│   │   └── styles/         # Globale CSS
+│   ├── components/         # Web Components
+│   ├── core/               # Zustandslogik
+│   └── main.js             # Einstiegspunkt
+└── vite.config.js          # Build-Konfig
+
+🛠️ Technologien & Sprachen
+Kategorie	Technologie	Verwendung
+Build-Tool	Vite 5.x	Dev-Server & Produktions-Build
+Core	Vanilla JavaScript (ES6+)	Keine Frameworks, native Browser-APIs
+UI	Web Components	Custom Elements + Shadow DOM
+Styling	CSS + CSS Variables	Kein Tailwind/CSS-in-JS
+🧩 Architektur & Konzepte
+Konzept	Implementierung
+State Management	Zentraler Store (store.js) mit Observer-Pattern
+Kommunikation	Custom Events + Store-Subscriptions
+Styling	CSS Isolation via Shadow DOM
+WCAG Compliance	ARIA-Labels + Kontraststeuerung
+Responsive Design	Mobile-First + Media Queries in Komponenten
+🎨 Styleguide
+css
+Copy
+
+/* Globale Variablen (src/assets/styles/global.css) */
+:root {
+  --a11y-primary: #3498db;
+  --a11y-bg: white;
+  --a11y-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Komponenten-Styles (Inlined in JS) */
+button {
+  border-radius: 50%;
+  box-shadow: var(--a11y-shadow);
+}
+
+🧠 Wichtige Code-Snippets
+Store (Observer-Pattern)
+javascript
+Copy
+
+// src/core/store.js
+export class A11yStore {
+  #state = { isOpen: false, contrast: false }
+  #observers = []
+  
+  togglePopup() {
+    this.#state.isOpen = !this.#state.isOpen
+    this.#notify()
+  }
+}
+
+Komponente (Shadow DOM)
+javascript
+Copy
+
+// src/components/AccessibilityButton.js
+class AccessibilityButton extends HTMLElement {
+  constructor() {
+    super()
+    this.attachShadow({ mode: 'open' })
+    this.shadowRoot.innerHTML = `<button>...</button>`
+  }
+}
+
+🚀 Entwicklungsbefehle
+bash
+Copy
+
+# Dev-Server starten
+npm run dev
+
+# Produktions-Build
+npm run build
+
+# Komponente erstellen
+touch src/components/NewComponent.js
+
+🔗 Schlüsseldateien
+Datei	Verantwortung
+src/core/store.js	Globaler Zustand + Business-Logik
+src/main.js	App-Initialisierung + Demoinhalt
+src/components/*.js	UI-Komponenten
+public/icons/*.png	Icons als statische Assets
+🎯 Projektziele
+
+    Barrierefreiheit
+
+        WCAG 2.1 AA Konformität
+
+        Tastatur-Navigation
+
+        Screenreader-Unterstützung
+
+    Performance
+
+        < 50KB Gesamtgröße (JS+CSS)
+
+        Lazy-Loading für nicht-kritische Komponenten
+
+    Skalierbarkeit
+
+        Plug-and-Play für React/Vue/HTML
+
+        Modulare Feature-Erweiterungen
+
+⚠️ Aktueller Status (Letzter Stand)
+
+    ✅ Funktionierende Features
+
+        Hauptbutton mit Icon
+
+        Popup öffnet/schließt via Store
+
+        Kontrast-Switch (UI-only, noch nicht visuell wirksam)
+
+    🚧 In Arbeit
+
+        Kontrast-Funktionalität verbinden
+
+        Reset-All-Button implementieren
+
+    ❌ Ausstehend
+
+        Schriftgrößen-Steuerung
+
+        Screenreader-Tests
+
+Mit dieser Übersicht können wir jederzeit nahtlos weiterarbeiten! 🔄
+Lass mich wissen, woran wir als nächstes arbeiten sollen:
+
+    Kontrast-Logik fertigstellen
+
+    Reset-Funktion implementieren
+
+    React-Integration vorbereiten
+----------------------------------------------------------
+Promt:
+
+PROJECT SNAPSHOT - COPY PASTE FÜR NEUE CHATS
+
+[FOLDER STRUCTURE]
+public/icons/
+src/assets/styles/
+src/components/
+src/core/
+
+[TECHNOLOGIEN]
+
+    Vite 5.x (Build)
+
+    Vanilla JS (Core)
+
+    Web Components (UI)
+
+    CSS + CSS Vars (Styling)
+
+[ARCHITEKTUR]
+
+    Store.js (Zustand + Observer)
+
+    Shadow DOM (Styling Isolation)
+
+    Custom Events (Kommunikation)
+
+[STYLEGUIDE]
+CSS-Vars: --a11y-primary, --a11y-bg, --a11y-shadow
+Mobile-First + Media Queries in Komponenten
+
+[CODE SNIPPETS]
+// Store.js
+class A11yStore {
+#state = { isOpen: false, contrast: false }
+togglePopup() { ... }
+}
+
+// Component.js
+class X extends HTMLElement {
+constructor() {
+this.attachShadow({ mode: 'open' });
+...
+}
+}
+
+[COMMANDS]
+npm run dev | build
+touch src/components/...
+
+[KEY FILES]
+store.js (Zustand) | main.js (Entry) | AccessibilityPopup.js
+
+[PROJEKTZIELE]
+
+    WCAG 2.1 AA
+
+    <50KB Bundle
+
+    Framework-unabhängig
+
+[AKTUELLER STAND]
+✅ Button + Popup (Öffnen/Schließen)
+🚧 Kontrast-Logik (UI ready, fehlt CSS)
+❌ Schriftgröße, Reset-Button
+
+ENDE SNAPSHOT

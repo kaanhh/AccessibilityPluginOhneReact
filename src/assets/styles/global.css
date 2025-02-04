@@ -1,0 +1,22 @@
+/* Globale Variablen */
+:root {
+    --a11y-primary: #3498db;
+    --a11y-primary-hover: #2980b9;
+    --a11y-bg: white;
+    --a11y-border: #ddd;
+    --a11y-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    --a11y-danger: #e74c3c;
+  }
+  
+  /* Reset */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+  }
+  
+  /* Fonts */
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+  
+  body {
+    font-family: 'Inter', sans-serif;
+  }

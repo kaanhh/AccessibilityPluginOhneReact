@@ -1,0 +1,14 @@
+
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .hover-scale {
+    transition: transform 0.2s;
+  }
+  
+  .hover-scale:hover {
+    transform: scale(1.05);
+  }
